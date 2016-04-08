@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cmath>
+
+using std::cout;
+using std::cin;
+using std::endl;
+
+float suma (int x, float num[]){
+  float sum=0;
+  for (int a=0; a<x; a+=1){
+    sum=sum+num[a];
+  }
+  return sum;
+}
+float promedio(int x, float sumita){
+  float prom=0;
+  prom=sumita/x;
+  return prom;
+}
+
+float desvia(float num[], float promediobebe, int x){
+  float potencias=0, sumatoria=0, desvia=0;
+  for (int c=0; c<10;c+=1){
+    cout << c << endl;
+    potencias= pow(num[c]-promediobebe,2);
+    sumatoria=sumatoria+potencias;
+  }
+  desvia= sqrt (sumatoria/(x-1));
+  return desvia;
+}
+
+int main (){
+  int x;
+  float sumita=0, promediobebe=0;
+  cout<<"¿cuantos numeros quieres ingresar?"<<endl;
+  cin>>x;
+  float num[x];
+  for (int i=0;i<x; i+=1){
+    cout<<"dime un numero"<<endl;
+    cin>> num[i];
+  }
+  sumita= suma(x,num);
+  promediobebe= promedio (x, sumita);
+  cout<<"la suma es "<< suma(x,num)<<endl;
+  cout<<"el promedio es "<< promedio(x, sumita)<<endl;
+  cout<< "la desviacion es "<< desvia (num, promediobebe, x)<<endl;
+
+  return 0;
+  }
